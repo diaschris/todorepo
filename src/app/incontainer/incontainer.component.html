@@ -1,0 +1,1 @@
+<app-inprogress *ngFor="let task of tasks" [task]="task" type="todo" (removetask1)="remove($event)"  (removetask2)="remove1($event)"[ngClass]="{hidecell:task.status!='inprogress'}"></app-inprogress>
