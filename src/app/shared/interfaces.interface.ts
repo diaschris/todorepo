@@ -1,27 +1,29 @@
 export interface Projects {
+Pname:string,
 pid:string,
-name:string,
-description:string,
-sprint:Sprint[]
+Desc:string,
+Sprint:Sprint[]
 totaltask:number;
 }
 
 export interface Sprint{
-    sid:string,
+
     Sname:string,
-    description:string,
-    task:Task[]
+    sid:string,
+    Desc:string,
+    Task:Task[]
     hours:number;
     minutes:number;
 }
 
 export interface Task{
    tid:string,
-    name:string,
-    description:string,
-    estimatedtime:Date,
-    timegroup:Timegroup[],
-    status : "completed" | "todo" | "inprogress" | "backlogs";
+    Name:string,
+   Desc:string,
+    Estimatedtime:Date,
+    status : "completed" | "todo" | "inprogress" | "backlogs",
+    Timegroup:Timegroup[]
+   
     
     
 }
@@ -29,9 +31,6 @@ export interface Task{
 export interface Timegroup{
     Starttime:string,
     Endtime:string
-}
-export interface TaskCompleted {
-    taskStatus:boolean;
 }
 
 

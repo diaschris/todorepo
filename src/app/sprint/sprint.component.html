@@ -1,14 +1,10 @@
 <div class="background">
-  <div *ngIf="!sprints.length>0">
+  <div *ngIf="sprints.length==0">
     <div class="container">
       <div style="display: flex;justify-content:flex-end;margin-top: 10px;">
         <button type="button" class="btn" routerLink="/addsprint" style="color: white">Add Sprint</button>
       </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
     <h3 style="text-align: center">No Sprints Available</h3>
   </div>
   <div *ngIf="sprints.length>0">

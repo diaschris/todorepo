@@ -1,14 +1,12 @@
 <div class="align">
   <div class="card">
     <div>
-      <!-- <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2"> -->
       <form [formGroup]="sprintForm" (ngSubmit)="onsubmit()">
         <div>
           <div class="group" style="margin:40px">
             <div class="input">
               <input type="text" placeholder="Sprint Name" class="form-control" style="width: 230px;" formControlName="Sname" id="Sname"
                 required>
-              <!-- <input type="text" placeholder="Id" class="form-control" style="width:50px;" formControlName="sid" id="sid"> -->
               <input type="text" placeholder="Description" class="form-control" style="width: 230px;" formControlName="Desc" id="Desc">
             </div>
             <br>
@@ -16,7 +14,7 @@
               <table style="text-align:center;" cellpadding=10 cellspacing=10>
                 <tr>
                   <div formArrayName="Task">
-                    <div *ngFor="let task of sprintForm.get('Task').controls; let i=index">
+                    <div *ngFor="let task of sprintForm.get('Task')['controls']; let i=index">
                       <div [formGroupName]="i">
                         <td>
                           <input type="text" class="form-control" formControlName="Name" placeholder="tname" id="tname">

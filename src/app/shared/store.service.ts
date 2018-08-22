@@ -1,10 +1,10 @@
-import { Injectable, ModuleWithComponentFactories } from '@angular/core';
-// import { Sprint, Projects, WorkHour } from './interfaces.interface';
+import { Injectable} from '@angular/core';
+
 import { todo } from '../data/data';
-import { Projects, Sprint, Task, Timegroup } from './interfaces.interface';
+import { Projects, Sprint } from './interfaces.interface';
 
 import * as moment from 'moment';
-// import { allResolved } from '../../../node_modules/@types/q';
+
 
 
 
@@ -13,13 +13,13 @@ import * as moment from 'moment';
     providedIn: 'root'
 })
 export class StoreService {
-    i:number=3;
-    todo: any[] = [];
-    currentsp: any[] = [];
-    data: any[] = [];
-    data1: any[] = [];
-    sprint: any[] = [];
-    sprint1: number;
+    // i:number=3;
+    todo: any;
+    currentsp: any;
+    data:any;
+    data1: any;
+    sprint: string;
+    sprint1: string;
     state:boolean=false;
     constructor() { }
 
@@ -66,7 +66,7 @@ export class StoreService {
             if (id == this.todo[i].pid) {
                 this.todo[i].Pname = data.Pname;
                 this.todo[i].Desc = data.Desc;
-                this.getAllproject();
+                // this.getAllproject();
 
 
             }

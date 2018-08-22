@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Projects } from '../shared/interfaces.interface';
+import { Component, OnInit } from '@angular/core';
+
 import { StoreService } from '../shared/store.service';
 import { Router } from '../../../node_modules/@angular/router';
+import { Projects } from '../shared/interfaces.interface';
 
 
 
@@ -13,11 +14,11 @@ import { Router } from '../../../node_modules/@angular/router';
 
 
 export class EditComponent implements OnInit {
-  projects: Projects;
+  // projects: any[]=[];
+  data=this.store.data;
+sprint=this.store.sprint;
 
-data=this.store.data;
-
-  constructor(private store:StoreService,private route:Router){}
+  constructor(public store:StoreService,private route:Router){}
   ngOnInit() {
   }
   oncancel(){

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../shared/store.service';
-import { FormGroup, FormArray, FormControl, Validators } from '../../../node_modules/@angular/forms';
+import { FormGroup } from '../../../node_modules/@angular/forms';
 
 
 @Component({
@@ -11,10 +11,11 @@ import { FormGroup, FormArray, FormControl, Validators } from '../../../node_mod
 export class EditsprintComponent implements OnInit {
   id=this.store.sprint;
   sid=this.store.sprint1;
+
 data=this.store.data1;
-// tasks=this.store.data2;
+
 sprintForm1:FormGroup;
-  constructor(private store:StoreService) { }
+  constructor(public store:StoreService) { }
 
 
   ngOnInit() {

@@ -9,7 +9,7 @@ import { StoreService } from '../shared/store.service';
   styleUrls: ['./inprogress.component.css']
 })
 export class InprogressComponent implements OnInit {
-  @Input() task:Task[];
+  @Input() task:Task;
 
   constructor(private store:StoreService) { }
 

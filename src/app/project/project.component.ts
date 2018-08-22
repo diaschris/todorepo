@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../shared/store.service';
 import { Router } from '../../../node_modules/@angular/router';
-import { Sprint } from '../shared/interfaces.interface';
+import { Sprint, Projects } from '../shared/interfaces.interface';
 import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 
 
@@ -11,11 +11,11 @@ import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
-  projects:any[]=[];
-  singleclick:boolean=false;
-  abc:any[]=[];
-  constructor(private store:StoreService,private route:Router,private afauth: AngularFireAuth) { }
-c:number=0;
+  projects:any;
+  // singleclick:boolean=false;
+  // abc:any[]=[];
+  constructor(public store:StoreService,private route:Router,private afauth: AngularFireAuth) { }
+// c:number=0;
   ngOnInit() {
     this.projects=this.store.getAllproject();
     // this.projects=this.store.deleteProject();

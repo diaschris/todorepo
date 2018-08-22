@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormArray, FormBuilder, FormControlName } from '../../../node_modules/@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '../../../node_modules/@angular/forms';
 import { StoreService } from '../shared/store.service';
 import { Router } from '../../../node_modules/@angular/router';
 
@@ -11,7 +11,7 @@ import { Router } from '../../../node_modules/@angular/router';
   styleUrls: ['./addsprint.component.css']
 })
 export class AddsprintComponent implements OnInit {
-  @Input() tid:number=1;
+
   sprintForm:FormGroup;
   data=this.store.data;
   sprint=this.store.sprint;
@@ -44,7 +44,7 @@ export class AddsprintComponent implements OnInit {
 
     
   }
- 
+  // get formData() { return this.sprintForm.get('Task'); }
   onaddtasks() {
    
     (<FormArray>this.sprintForm.get('Task')).push(new FormGroup({
@@ -58,6 +58,7 @@ export class AddsprintComponent implements OnInit {
     }));
 
   }
+  
   onsubmit(){
 
   this.store.addNewSprint(this.data,this.sprintForm.value)
