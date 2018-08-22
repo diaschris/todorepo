@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit   } from '@angular/core';
 import { StoreService } from '../shared/store.service';
 import { Router } from '../../../node_modules/@angular/router';
+import { Sprint } from '../shared/interfaces.interface';
 
 
 @Component({
@@ -9,35 +10,42 @@ import { Router } from '../../../node_modules/@angular/router';
   styleUrls: ['./sprint.component.css']
 })
 export class SprintComponent implements OnInit {
+
 private tasks:any[]=[];
+
  id=this.store.sprint;
- data=this.store.data;
- sprints:any[]=[];
+ sprints:Sprint[]=[];
+ sid=this.store.sprint1;
+selected:any;
+
   constructor(private store:StoreService,private router:Router) { }
-  
 
   ngOnInit() {
-    console.log(this.id);
-  
+
     this.sprints=this.store.getAllsprint(this.id);
-    console.log(this.sprints,"allsp");
-    
+    this.selected=this.store.sprint1;
+    if(this.selected==this.store.sprint1){ 
+    this.tasks=this.store.getAllTask(this.store.data,this.store.sprint1);
+    }
     
   }
+  a:any;
+
   selectname(event): void { 
-    const newVal = event.target.value;
-  this.tasks=this.store.getAllTask(this.store.data,newVal);
-  this.store.task=this.tasks;
+ this.store.sprint1= event.target.value;
+  this.tasks=this.store.getAllTask(this.store.data,this.store.sprint1);
+ this.sid=  this.store.sprint1;
 }
-  // console.log(this.store.task,"yu");
-  sprintid(id){
-    this.store.sprint1=id;
-    console.log(this.store.sprint1,"abcd");
+
+  
+ 
+  editsprint(pid,sid)
+  {
+  
+    this.store.data1=this.store.getsprint(pid,sid);
+    this.router.navigate(['editsprint']);
+   
   }
-  // editsprint(data)
-  // {
-  //   this.store.editdata=data;
-  //   this.router.navigate(['editsprint']);
-  // }
+
  
 }

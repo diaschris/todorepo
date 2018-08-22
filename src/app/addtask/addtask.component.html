@@ -1,0 +1,29 @@
+<div class="align">
+  <div class="card">
+    <div>
+      <form [formGroup]="taskForm" >
+        <div>
+          <div class="group" style="margin:40px">
+            <table style="text-align:center;" cellpadding=10 cellspacing=10>
+              <tr>
+                <td>
+                  <input type="text" class="form-control" formControlName="Name" placeholder="tname">
+                </td>
+                <td>
+                  <input type="text" class="form-control" formControlName="Desc" placeholder="Description">
+                </td>
+                <td>
+                  <input type="text" class="form-control" formControlName="Estimatedtime" placeholder="Estimatedtime">
+                </td>
+              </tr>
+            </table>
+            <div class=" button ">
+              <button type="submit " class="btn " style="width:72.71px;background-color: dimgray; "(click)="onsubmit()" routerLink="/sprint" [disabled]="!taskForm.valid">Submit</button>
+              <button type="reset " class="btn " routerLink="/sprint">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -12,11 +12,6 @@ export class BackcontainerComponent implements OnInit {
 
   ngOnInit() {
   }
-  remove(id){
-
-    const i=this.tasks.findIndex((el)=> el.tid===id.tid)
-    this.tasks[i].status="inprogress";
-    console.log(i,"i");
-    }
+ 
 
 }

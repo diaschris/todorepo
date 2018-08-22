@@ -11,11 +11,21 @@
     padding: 24px;
     border-radius: 2px;
 }
-.background{
-    background-color: #d2d5d8;
-}
+
 .btn
 {
     margin-top: -5px;
     background-color: dimgrey;
+}
+.fa-plus{
+    display: flex;
+    position: absolute;
+    left: 20px;
+    top: 6px;
+}
+.head{
+    text-align: center;
+    font-size: 20px;
+    font-style: bold;
+    font-family: Lucida Sans;
 }

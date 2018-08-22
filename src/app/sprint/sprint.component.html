@@ -1,59 +1,64 @@
 <div class="background">
-  <div class="container">
-    <h3>Projects</h3>
-
-
-    <div class="card" style="background-color: #d2d5d8;border: #d2d5d8; ">
-      <div class="header">
-        <div style="font-size: 20px;font-style: bold;font-family: Lucida Sans;">Sprint:
-          <select (change)="selectname($event)">
-            <option></option>
-            <option *ngFor="let data of sprints" [value]="data.sid"  >
-
-              {{data.Sname}}
-
-            </option>
-          </select>
-
-        </div>
-        <div style="display: flex;margin-top: 5px">
-          <div style="margin-right: 50px;">
-            <button type="button" class="btn" routerLink="/addsprint" style="color: white">Add Sprint</button>
+  <div *ngIf="!sprints.length>0">
+    <div class="container">
+      <div style="display: flex;justify-content:flex-end;margin-top: 10px;">
+        <button type="button" class="btn" routerLink="/addsprint" style="color: white">Add Sprint</button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3 style="text-align: center">No Sprints Available</h3>
+  </div>
+  <div *ngIf="sprints.length>0">
+    <div class="container">
+      <h3 routerLink="/project">Projects</h3>
+      <div class="card" style="border: #d2d5d8; ">
+        <div class="header">
+          <div style="font-size: 20px;font-style: bold;font-family: Lucida Sans;">Sprint:
+            <select [(ngModel)]="selected" (change)="selectname($event)" style="width: 145px;">
+              <!-- <option selected="selected"></option>   -->
+              <option *ngFor="let data of sprints" [value]="data.sid">
+                {{data.Sname}}
+              </option>
+            </select>
           </div>
-          <div>
-            <i class="fa fa-edit" style="font-size:24px;" ></i>
-            <i class="fa fa-trash" style="font-size:24px;margin-left: 10px" ></i>
+          <div style="display: flex;margin-top: 5px">
+            <div style="margin-right: 50px;">
+              <button type="button" class="btn" routerLink="/addsprint" style="color: white">Add Sprint</button>
+            </div>
+            <div>
+              <i class="fa fa-edit" style="font-size:24px;" (click)="editsprint(id,sid)"></i>
+              <i class="fa fa-trash" style="font-size:24px;margin-left: 10px" (click)="store.deleteSprint(id,sid)"></i>
+            </div>
           </div>
-
-
         </div>
-
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col head">
+          <i class="fa fa-plus" routerLink="/addtask"></i>Todo</div>
+        <div class="col head">Inprogress</div>
+        <div class="col head">Done</div>
+        <div class="col head">Backlog</div>
+      </div>
+      <hr style="border-bottom: 1px solid dimgrey;margin-bottom: 0px; ">
+      <div class="row">
+        <div class="col">
+          <app-container [tasks]="tasks"></app-container>
+        </div>
+        <div class="col">
+          <app-incontainer [tasks]="tasks" (add1)="addtask($event)"></app-incontainer>
+        </div>
+        <div class="col">
+          <app-donecontainer [tasks]="tasks"></app-donecontainer>
+        </div>
+        <div class="col">
+          <app-backcontainer [tasks]="tasks"></app-backcontainer>
+        </div>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col" style="text-align: center;font-size: 20px;font-style: bold;font-family: Lucida Sans;">Todo</div>
-      <div class="col" style="text-align: center;font-size: 20px;font-style: bold;font-family: Lucida Sans;">Inprogress</div>
-      <div class="col" style="text-align: center;font-size: 20px;font-style: bold;font-family: Lucida Sans;">Done</div>
-      <div class="col" style="text-align: center;font-size: 20px;font-style: bold;font-family: Lucida Sans;">Backlog</div>
-    </div>
-    <hr style="border-bottom: 1px solid dimgrey;margin-bottom: 0px; ">
-    <div class="row">
-      <div class="col">
-        <app-container [tasks]="tasks"></app-container>
-      </div>
-      <div class="col">
-        <app-incontainer [tasks]="tasks"></app-incontainer>
-      </div>
-      <div class="col">
-        <app-donecontainer [tasks]="tasks"></app-donecontainer>
-      </div>
-      <div class="col">
-        <app-backcontainer [tasks]="tasks"></app-backcontainer>
-      </div>
-    </div>
-  </div>
-
-
 </div>

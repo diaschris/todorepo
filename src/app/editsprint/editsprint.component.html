@@ -1,3 +1,44 @@
-<p>
-  editsprint works!
-</p>
+<div class="align">
+  <div class="card">
+    <div>
+      <div>
+        <div class="group" style="margin:40px">
+          <div class="input">
+            <input type="text" class="form-control" style="width: 230px;" [(ngModel)]="data.Sname">
+            <input type="text" class="form-control" style="width: 230px;" [(ngModel)]="data.Desc">
+          </div>
+          <br>
+          <div class="card card-group" style="width: 800px;border:none;box-shadow: none;">
+            <table style="text-align:center;" cellpadding=10 cellspacing=10>
+              <tr>
+                <div>
+                    <hr>
+                  <div *ngFor="let task of data.Task; let i=index">
+                    <div>
+                      <td>
+                        <input type="text" class="form-control" [(ngModel)]="task.Name" id="tname" [disabled]="task.status=='completed'">
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" [(ngModel)]="task.Desc" id="Description" [disabled]="task.status=='completed'">
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" [(ngModel)]="task.Estimatedtime" id="etime" [disabled]="task.status=='completed'">
+                      </td>
+                      <td>
+                        <i class="fa fa-trash " style="font-size: larger;" (click)="deleteTask(id, sid,task)"></i>
+                      </td>
+                    </div>
+                  </div>
+                </div>
+              </tr>
+            </table>
+          </div>
+          <div class=" button ">
+            <button type="submit" style="width:72.71px;background-color: dimgray;border-radius: 10px; " (click)="store.editSprint(id,sid,data)" routerLink="/sprint">Save</button>
+            <button type="reset " routerLink="/sprint" style="width:72.71px;background-color: dimgray;border-radius: 10px; " >Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

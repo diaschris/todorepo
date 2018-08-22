@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from './shared/store.service';
 
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -33,6 +34,11 @@ end={
 
   }
   ngOnInit(){
+    firebase.initializeApp({
+      apiKey: "AIzaSyArVmc4AgdV_jHmClgpTMF97Gu9i2v7zgs",
+    authDomain: "todo-f00b3.firebaseapp.com",
+    });
+    
     this.store.getAllproject();
     // this.store.getproject(2);
     // this.store.deleteProject(2);

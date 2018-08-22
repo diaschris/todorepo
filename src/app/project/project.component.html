@@ -1,43 +1,42 @@
-
-<h3>Project Details
-  <br>
+<div  class="header"><h3>
+  Project Details
 </h3>
+ 
+    <button type="button" class="logout" (click)="logout()">Logout</button>
+
+  </div>
 
 <div class="card">
-
-  <div class="project-card " *ngFor="let data of projects;let i=index;">
+  <div class="project-card " *ngFor="let data of projects;let i=index;" (dblclick)="sprint(data.pid)">
     <div class="actions">
       <i class="fa fa-trash" style="font-size: 24px;margin-left: 8px;margin-right: 10px;" (click)="store.deleteProject(data.pid)"></i>
-
       <div class="thumb">
         <span>{{data.Pname|uppercase|slice:0:2}}</span>
       </div>
       <i class="fa fa-edit" style="font-size:24px;" (click)="edit(data)"></i>
-
     </div>
     <div class="thumb-divider">
       <!-- <mat-divider></mat-divider> -->
       <hr style="border-color: dimgray;">
     </div>
     <div class="Project_name">{{data.Pname}}</div>
-    <div class="text">{{data.Desc|slice:0:5}}
-      <span *ngIf="data.Desc.length>5">&hellip;</span>
+    <div class="text">{{data.Desc|slice:0:80}}
+      <span *ngIf="data.Desc.length>80">&hellip;</span>
     </div>
     <div style=" display: flex;justify-content: space-between">
-      <div class="sprint" >
-        <p class="heading" (click)="sprint(data.pid)"routerLink="/sprint">SPRINTS:</p>
+      <div class="sprint">
+        <p class="heading" (click)="sprint(data.pid)" routerLink="/sprint">SPRINTS:</p>
         <p class="value">{{data.Sprint.length}}</p>
       </div>
       <div class="task">
         <p class="heading">TASKS:</p>
-        <p class="value">4</p>
+        <p class="value" *ngIf="data.totaltask>0">{{data.totaltask}}</p>
+        <p class="value" *ngIf="!data.totaltask>0">0</p>
       </div>
     </div>
-   
-    
   </div>
-  <div >
-   <button  routerLink="/add" class="project-card" style="height: 245px;font-size: 40px;width:350px;">+ </button>
+  <div>
+    <button routerLink="/add" class="project-card" style="height: 245px;font-size: 40px;width:350px;">+ </button>
   </div>
-  
+
 </div>

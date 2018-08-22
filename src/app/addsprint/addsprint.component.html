@@ -5,97 +5,41 @@
       <form [formGroup]="sprintForm" (ngSubmit)="onsubmit()">
         <div>
           <div class="group" style="margin:40px">
-
             <div class="input">
-              <input type="text" placeholder="Sprint Name" class="form-control" style="width: 230px;" formControlName="Sname" id="Sname">
-              <input type="text" placeholder="Id" class="form-control" style="width:50px;" formControlName="sid" id="sid">
+              <input type="text" placeholder="Sprint Name" class="form-control" style="width: 230px;" formControlName="Sname" id="Sname"
+                required>
+              <!-- <input type="text" placeholder="Id" class="form-control" style="width:50px;" formControlName="sid" id="sid"> -->
               <input type="text" placeholder="Description" class="form-control" style="width: 230px;" formControlName="Desc" id="Desc">
             </div>
-
             <br>
             <div class="card card-group">
               <table style="text-align:center;" cellpadding=10 cellspacing=10>
-                <!-- <tr>
-                      <th>Tid</th>
-                      <th>Task Name</th>
-                      <th>Description</th>
-                      <th>Estimated time</th>
-                      <th>Action</th>
-                    </tr> -->
                 <tr>
                   <div formArrayName="Task">
-                      <div *ngFor="let task of sprintForm.get('Task').controls; let i=index">
-                    <div [formGroupName]="i">
-                  <td>
-                    <input type="text" class="form-control" formControlName="tid" placeholder="tid" id="tid">
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" formControlName="Name" placeholder="tname" id="tname">
-                  </td>
-                  <td>
-                    <input type="text" class="form-control"  formControlName="Desc" placeholder="Description" id="Description">
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" formControlName="Estimatedtime" placeholder="Estimatedtime" id="etime">
-                  </td>
-                  
+                    <div *ngFor="let task of sprintForm.get('Task').controls; let i=index">
+                      <div [formGroupName]="i">
+                        <td>
+                          <input type="text" class="form-control" formControlName="Name" placeholder="tname" id="tname">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" formControlName="Desc" placeholder="Description" id="Description">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" formControlName="Estimatedtime" placeholder="Estimatedtime" id="etime">
+                        </td>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                </div>
-                
-                </tr>
-                <tr>
-                    <td>
-                        <button type="button"  style="width:72.71px;background-color: dimgray;"(click)="onaddtasks()">add task</button>
-                    </td>
-                  </tr>
-              </table>
-            </div>
-
-            <!-- <div class="card card-group">
-              <table style="text-align:center;" cellpadding=10 cellspacing=10>
-                <tr>
-                  <th>Tid</th>
-                  <th>Task Name</th>
-                  <th>Description</th>
-                  <th>Estimated time</th>
-                  <th>Action</th>
-                </tr>
-                <tr formArrayName="tasks" >
-                    <div *ngFor="let task of sprintForm.get('tasks').controls; let i=index">
-
-                  <div [formGroupName]="i">
-            
-
-                    <td>
-                      <input type="text" class="form-control" formControlName="tid" id="tid">
-                    </td>
-                    <td>
-                      <input type="text" class="form-control" formControlName="tname" id="tname">
-                    </td>
-                    <td>
-                      <input type="text" class="form-control" formControlName="Description" id="Description">
-                    </td>
-                    <td>
-                      <input type="text" class="form-control" formControlName="etime" id="etime">
-                    </td>
-                   
-                    <td>
-                      <i class="fa fa-trash" style="font-size: 20px" ></i>
-                    </td>
-                  </div>
-                </div>
-
                 </tr>
                 <tr>
                   <td>
-                      <button type="button"  style="width:72.71px;background-color: dimgray; " (click)="onaddtasks()">add task</button>
+                    <button type="button" style="width:72.71px;background-color: dimgray;border-radius: 10px" (click)="onaddtasks()" [disabled]="!sprintForm.valid">add task</button>
                   </td>
                 </tr>
               </table>
-            </div> -->
+            </div>
             <div class=" button ">
-              <button type="submit " class="btn " style="width:72.71px;background-color: dimgray; "[disabled]="!sprintForm.valid">Submit</button>
+              <button type="submit " class="btn " style="width:72.71px;background-color: dimgray; " [disabled]="!sprintForm.valid">Submit</button>
               <button type="reset " class="btn ">Cancel</button>
             </div>
           </div>

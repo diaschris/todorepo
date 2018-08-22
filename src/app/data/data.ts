@@ -18,17 +18,7 @@ export const todo=
                                     "Estimatedtime": "9",
                                     "status": "todo",
                                     "Timegroup": [
-                                        {
-                                           
-
-                                            "Starttime": "1",
-                                            "Endtime": "2"
-                                        },
-                                        {
-                                            "Starttime": "2",
-                                            "Endtime": "7"
-                                            
-                                        }
+                                       
                                     ]
                                 },
                                 {
@@ -38,11 +28,7 @@ export const todo=
                                     "Estimatedtime": "5",
                                     "status": "todo",
                                     "Timegroup": [
-                                        {
-                                            
-                                            "Starttime": "4",
-                                            "Endtime": "6"
-                                        }
+                                      
                                     ]
                                 }
                             ]
@@ -59,12 +45,7 @@ export const todo=
                                     "Estimatedtime": "7",
                                     "status": "todo",
                                     "Timegroup": [
-                                        {
-                                          
-
-                                            "Starttime": "2",
-                                            "Endtime": "3"
-                                        }
+                                    
                                      
                                     ]
                                 },
@@ -73,14 +54,9 @@ export const todo=
                                     "Name": "logout",
                                     "Desc": "jkjjdkjhd mdhk hfjhj",
                                     "Estimatedtime": "5",
-                                    "status": "inprogress",
+                                    "status": "todo",
                                     "Timegroup": [
-                                        {
-                                            
-
-                                            "Starttime": "4",
-                                            "Endtime": "6"
-                                        }
+                                        
                                     ]
                                 }
                             ]
@@ -104,10 +80,7 @@ export const todo=
                                     "Estimatedtime": "9",
                                     "status": "todo",
                                     "Timegroup": [
-                                        {
-                                            "Starttime": 1,
-                                            "Endtime": 2
-                                        }
+                                       
                                     ]
                                 },
                                 {
@@ -117,10 +90,7 @@ export const todo=
                                     "Estimatedtime": "5",
                                     "status": "todo",
                                     "Timegroup": [
-                                        {
-                                            "Starttime": "4",
-                                            "Endtime": "6"
-                                        }
+                                       
                                     ]
                                 }
                             ]
@@ -137,10 +107,7 @@ export const todo=
                                     "Estimatedtime": "6",
                                     "status": "todo",
                                     "Timegroup": [
-                                        {
-                                            "Starttime": 4,
-                                            "Endtime": 9
-                                        }
+                                       
                                     ]
                                 },
                                 {
@@ -150,10 +117,7 @@ export const todo=
                                     "Estimatedtime": "3",
                                     "status": "todo",
                                     "Timegroup": [
-                                        {
-                                            "Starttime": "4",
-                                            "Endtime": "6"
-                                        }
+                                        
                                     ]
                                 }
                             ]

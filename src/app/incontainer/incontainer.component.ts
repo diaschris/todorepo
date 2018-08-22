@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { StoreService } from '../shared/store.service';
+
 
 @Component({
   selector: 'app-incontainer',
@@ -7,18 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class IncontainerComponent implements OnInit {
   @Input() tasks:any[]=[];
-  constructor() { }
- inpro:any[]=[];
+  
+  constructor(private store:StoreService) { }
+ 
   ngOnInit() {
   }
-  remove(id){
-    const i=this.tasks.findIndex((el)=> el.tid===id.tid)
-    this.tasks[i].status="backlogs";
   
-    }
-    remove1(id){
-      const i=this.tasks.findIndex((el)=> el.tid===id.tid)
-      this.tasks[i].status="completed";
-    
-      }
+ 
+   
+
 }

@@ -17,15 +17,32 @@ import { IncontainerComponent } from './incontainer/incontainer.component';
 import { DoneComponent } from './done/done.component';
 import { DonecontainerComponent } from './donecontainer/donecontainer.component';
 import { BacklogComponent } from './backlog/backlog.component';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 import { BackcontainerComponent } from './backcontainer/backcontainer.component';
 import { EditsprintComponent } from './editsprint/editsprint.component';
-const routes:Routes=[{path:'project',component:ProjectComponent},
-{path:'',redirectTo:'/project',pathMatch:'full'},
+import { AddtaskComponent } from './addtask/addtask.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { AngularFireModule } from '../../node_modules/angularfire2';
+import { config } from './app.firebase.config';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth.guard';
+const routes:Routes=[
+{path:"welcome",component:WelcomeComponent},
+{path:'project',canActivate:[AuthGuard],component:ProjectComponent},
+{path:'',redirectTo:"/welcome",pathMatch:'full'},
 {
-  path:'add',component:AddprojectComponent},
-{path:'edit',component:EditComponent},
-{path:"sprint",component:SprintComponent},
-{path:"addsprint",component:AddsprintComponent}]
+  path:'add',canActivate:[AuthGuard],component:AddprojectComponent},
+{path:'edit',canActivate:[AuthGuard],component:EditComponent},
+{path:"sprint",canActivate:[AuthGuard],component:SprintComponent},
+{path:"addsprint",canActivate:[AuthGuard],component:AddsprintComponent},
+{path:"editsprint",canActivate:[AuthGuard],component:EditsprintComponent},
+{path:"addtask",canActivate:[AuthGuard],component:AddtaskComponent},
+{path:"signin",component:SigninComponent
+},
+{path:"signup",component:SignupComponent
+}]
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,16 +59,24 @@ const routes:Routes=[{path:'project',component:ProjectComponent},
     DonecontainerComponent,
     BacklogComponent,
     BackcontainerComponent,
-    EditsprintComponent
+    EditsprintComponent,
+    AddtaskComponent,
+    SigninComponent,
+    SignupComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     Angular2FontawesomeModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(config)
+
+    
   ],
-  providers: [StoreService],
+  providers: [StoreService,AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

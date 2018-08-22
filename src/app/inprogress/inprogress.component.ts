@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../shared/interfaces.interface';
+import { StoreService } from '../shared/store.service';
 
 
 @Component({
@@ -8,20 +9,12 @@ import { Task } from '../shared/interfaces.interface';
   styleUrls: ['./inprogress.component.css']
 })
 export class InprogressComponent implements OnInit {
-  @Input() task:Task;
-@Output() removetask1 = new EventEmitter();
-@Output() removetask2 = new EventEmitter();
+  @Input() task:Task[];
 
-  constructor() { }
+  constructor(private store:StoreService) { }
 
   ngOnInit() {
   }
-  pausecard(id){
-    this.removetask1.emit(id);
- }
- complete(id){
-  this.removetask2.emit(id);
 
- }
 
 }

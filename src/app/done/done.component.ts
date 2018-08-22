@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from '../shared/interfaces.interface';
+import { StoreService } from '../shared/store.service';
 
 @Component({
   selector: 'app-done',
@@ -8,7 +9,7 @@ import { Task } from '../shared/interfaces.interface';
 })
 export class DoneComponent implements OnInit {
   @Input() task:Task;
-  constructor() { }
+  constructor(public store:StoreService) { }
 
   ngOnInit() {
   }

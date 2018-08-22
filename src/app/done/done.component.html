@@ -1,20 +1,18 @@
-<div>
+<div *ngIf="task.status=='completed'">
     <div class="card">
-      <div class="card-header" style="height:160px">
+      <div class="card-header" style="height:160px;background-color: #d2d5d8;">
         <div class="card-title">
           Task Name:{{task.Name}}
         </div>
         <div class="text">
-          Description: {{task.desc}}
+          Description: {{task.Desc}}
         </div>
         <div class="card-content">
           <div>
             <div class="text1" style="padding-bottom: 8px ">
-              Estimated Time:{{task.Estimatedtime}}
+              Total Time:{{task.hours}}hr:{{task.minutes}}mins
             </div>
-            <div class="text1">
-              Total Time
-            </div>
+         
           </div>
         </div>
       </div>

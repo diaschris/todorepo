@@ -1,34 +1,12 @@
-<!-- <div class="align">
-  <div class="card" style="width: 50%">
-
-    <div class="example-container">
-      <div class="form-group">
-        <input placeholder="Name" [(ngModel)]="data.Pname">
-      </div>
-
-      <div class="form-group">
-        <textarea placeholder="Description" rows="5" [(ngModel)]="data.Desc"></textarea>
-      </div>
-    </div>
-    <div class="butn">
-      <button type="submit" style="width: 30%" color="primary" (click)="store.editProject(data.pid,data)" routerLink="/project">Save</button>
-      <button type="reset" style="width: 30%" color="primary" routerLink="/project">Cancel</button>
-
-    </div>
+<div class="group" style="justify-content: center">
+  <div>
+    <label style="font-family: Lucida Sans;font-size: 20px">Project Name</label>
+    <input type="text" class="form-control" style="width: 100%;" name="pname" id="pname" [(ngModel)]="data.Pname">
+    <label style="font-family: Lucida Sans;font-size: 20px">Description</label>
+    <textarea type="text" class="form-control" style="width:100%" name="desc" id="desc" [(ngModel)]="data.Desc"></textarea>
   </div>
-</div> -->
-
-  
-  <div class="group" style="justify-content: center">
-    <div >
-      <label style="font-family: Lucida Sans;font-size: 20px">Project Name</label>
-      <input type="text" class="form-control" style="width: 100%;" name="pname" id="pname" [(ngModel)]="data.Pname">
-      <label style="font-family: Lucida Sans;font-size: 20px">Description</label>
-      <textarea type="text" class="form-control" style="width:100%" name="desc" id="desc" [(ngModel)]="data.Desc"></textarea>
-    </div>
-    <div class="button">
-      <button type="submit" class="btn" style="width:30%" (click)="editProject(data.pid,data)" routerLink="/project">Save</button>
-      <button type="button" class="btn" style="width:30%">Cancel</button>
-    </div>
+  <div class="button">
+    <button type="submit" class="btn" style="width:30%" (click)="editProject(data.pid,data)" routerLink="/project">Save</button>
+    <button type="button" class="btn" style="width:30%" (click)="oncancel()">Cancel</button>
   </div>
-  
+</div>

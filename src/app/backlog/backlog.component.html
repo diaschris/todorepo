@@ -1,6 +1,6 @@
-<div>
+<div *ngIf="task.status=='backlogs'">
     <div class="card">
-      <div class="card-header"style="height:160px">
+      <div class="card-header"style="height:160px;background-color: #d2d5d8;">
         <div class="card-title">
           Task Name: {{task.Name}}
         </div>
@@ -13,7 +13,7 @@
               Estimated Time:{{task.Estimatedtime}}
             </div>
             <div style="display: flex;justify-content: flex-end">
-              <i class="fa fa-play-circle" style="font-size: 25px;margin-top:10px;"(click)="popcard1(task)"></i>
+              <i class="fa fa-play-circle" style="font-size: 25px;margin-top:10px;"(click)="store.onstart(store.sprint,store.sprint1,task.tid)"></i>
             </div>
           </div>
         </div>

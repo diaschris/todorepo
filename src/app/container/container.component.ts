@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
 import { StoreService } from '../shared/store.service';
+import { Task } from '../shared/interfaces.interface';
 
 
 @Component({
@@ -10,17 +11,16 @@ import { StoreService } from '../shared/store.service';
 export class ContainerComponent implements OnInit {
  @Input() tasks:any[]=[];
 
-  data1:any[]=[];
+ 
+
+
+  
   constructor(private store:StoreService) { }
   
   ngOnInit() {
   
     
   }
-  remove(id){
-    this.data1=id;
-    const i=this.tasks.findIndex((el)=> el.tid===id.tid)
-    this.tasks[i].status="inprogress";
-    console.log(i,"i");
-    }
+
+  
 }

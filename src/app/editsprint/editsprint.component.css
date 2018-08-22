@@ -1,0 +1,33 @@
+.card{
+    display: flex;
+    box-shadow: 2px 2px 2px;
+
+  
+
+}
+.input{
+    display: flex;
+    justify-content: center;
+}
+input{
+    margin-right: 30px;
+}
+.button{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.align{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top:200px;
+    /* background-color: #d2d5d8; */
+  }
+  input.ng-invalid.ng-touched{
+      border:1px solid red;
+  }
+  .fa.disabled{
+      color: gray;
+  }

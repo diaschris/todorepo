@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../shared/interfaces.interface';
+import { StoreService } from '../shared/store.service';
 
 
 @Component({
@@ -11,15 +12,11 @@ export class BacklogComponent implements OnInit {
   @Input() task:Task;
   @Output() removetask4 = new EventEmitter();
   
-  constructor() { }
+  constructor(private store:StoreService) { }
 
   ngOnInit() {
   }
-  popcard1(id){
-    this.removetask4.emit(id);
-
-
-  }
+  
 
 
 }

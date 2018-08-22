@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder, FormControlName } from '../../../node_modules/@angular/forms';
 import { StoreService } from '../shared/store.service';
+import { Router } from '../../../node_modules/@angular/router';
 
 
 
@@ -10,21 +11,25 @@ import { StoreService } from '../shared/store.service';
   styleUrls: ['./addsprint.component.css']
 })
 export class AddsprintComponent implements OnInit {
+  @Input() tid:number=1;
   sprintForm:FormGroup;
   data=this.store.data;
   sprint=this.store.sprint;
-  constructor(private store:StoreService) {
+ 
+  constructor(private store:StoreService,private route:Router) {
    
    }
 
   ngOnInit() {
+    // this.store.getAllsprint(this.data)
+   
     this.sprintForm = new FormGroup({
         
         'Sname': new FormControl(null, [Validators.required]),
-        'sid': new FormControl(null, [Validators.required]),
+        'sid': new FormControl(Math.random().toString(36).substr(2,7), [Validators.required]),
         'Desc': new FormControl(null, [Validators.required]),
         'Task':new FormArray([new FormGroup({
-          tid:new FormControl(null, [Validators.required]),
+          tid:new FormControl(Math.random().toString(36).substr(2,7), [Validators.required]),
           Name:new FormControl(null, [Validators.required]),
           Desc:new FormControl(null, [Validators.required]),
           Estimatedtime:new FormControl(null, [Validators.required]),
@@ -39,22 +44,25 @@ export class AddsprintComponent implements OnInit {
 
     
   }
+ 
   onaddtasks() {
    
     (<FormArray>this.sprintForm.get('Task')).push(new FormGroup({
-      tid:new FormControl(null, [Validators.required]),
+      tid:new FormControl(Math.random().toString(36).substr(2,7), [Validators.required]),
       Name:new FormControl(null, [Validators.required]),
       Desc:new FormControl(null, [Validators.required]),
       Estimatedtime:new FormControl(null, [Validators.required]),
-      status:new FormControl(null, [Validators.required])
+      status:new FormControl('todo', [Validators.required]),
+      Timegroup:new FormArray([])
 
     }));
 
   }
   onsubmit(){
-  console.log(this.sprintForm.value);
+
   this.store.addNewSprint(this.data,this.sprintForm.value)
-  console.log(this.store)
+  this.sprintForm.reset();
+  this.route.navigate(['/sprint'])
   }
  
 }
